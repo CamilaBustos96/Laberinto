@@ -1,6 +1,12 @@
 import Phaser from 'phaser'
 
-import HelloWorldScene from './scenes/HelloWorldScene'
+import PantallaMenu from './scenes/PantallaMenu'
+import PantallaAjustes from './scenes/PantallaAjustes'
+import PantallaParque from './scenes/PantallaParque'
+import PantallaLaberintoUno from './scenes/PantallaLaberintoUno'
+import PantallaLaberintoDos from './scenes/PantallaLaberintoDos'
+import PantallaLaberintoTres from './scenes/PantallaLaberintoTres'
+import PantallaGanarPerder from './scenes/PantallaGanarPerder'
 
 const config = {
 	type: Phaser.AUTO,
@@ -10,8 +16,8 @@ const config = {
 		mode: Phaser.Scale.FIT,
 		autoCenter: Phaser.Scale.CENTER_BOTH,
 		min: {
-			width: 800,
-			height: 600,
+			width: 1300,
+			height: 270,
 		},
 		max: {
 			width: 1600,
@@ -25,7 +31,8 @@ const config = {
 			debug: false,
 		}
 	},
-	scene: [HelloWorldScene]
+	scene: [PantallaMenu, PantallaAjustes, PantallaParque, PantallaLaberintoUno, 
+		PantallaLaberintoDos, PantallaLaberintoTres, PantallaGanarPerder]
 }
 
 export default new Phaser.Game(config)
