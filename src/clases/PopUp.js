@@ -1,11 +1,11 @@
 import Phaser from 'phaser'
 
 
-export default class PantallaLaberintoDos extends Phaser.Scene
+export default class ClasePop extends Phaser.Scene
 {
 	constructor()
 	{
-		super('pantalla-laberinto-dos')
+		super('clase-pop')
 	}
 
 	preload()
@@ -15,11 +15,11 @@ export default class PantallaLaberintoDos extends Phaser.Scene
 
     create()
     {
-       
+        
     }
 
     update()
     {
-        
+
     }
 }

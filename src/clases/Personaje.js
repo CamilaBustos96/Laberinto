@@ -1,11 +1,11 @@
 import Phaser from 'phaser'
 
 
-export default class PantallaLaberintoTres extends Phaser.Scene
+export default class ClasePersonaje extends Phaser.Scene
 {
 	constructor()
 	{
-		super('pantalla-laberinto-tres')
+		super('clase-personaje')
 	}
 
 	preload()
@@ -15,11 +15,11 @@ export default class PantallaLaberintoTres extends Phaser.Scene
 
     create()
     {
-       
+        
     }
 
     update()
     {
-        
+
     }
 }
