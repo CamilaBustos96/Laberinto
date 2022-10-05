@@ -1,6 +1,9 @@
 import Phaser from 'phaser'
 
 
+
+
+
 // Manejador de eventos centralizados para comunicacion de componentes
 
 // Importacion
@@ -28,7 +31,7 @@ export default class PantallaMenu extends Phaser.Scene
         this.load.image('pantamenu', 'assets/Interfases/Pantallas/Inter_Inicio.png')
         this.load.image("play", "assets/Interfases/Botones/Boton_Play.png")
         this.load.image("ajustes", "assets/Interfases/Botones/Boton_Ajustes.png")
-        
+
     }
 
     create()
@@ -42,5 +45,14 @@ export default class PantallaMenu extends Phaser.Scene
         var botonajuste1 = this.add.image(365, 430, "ajustes" ).setOrigin(0, 0).setScale(0.2, 0.25)
         botonajuste1.setInteractive()
         botonajuste1.on("pointerdown", () => this.scene.start('pantalla-ajustes') );
+        
+
     }
+
+    update()
+    {
+        
+    }
+
+    
 }
