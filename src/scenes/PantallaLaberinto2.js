@@ -52,5 +52,10 @@ export default class PantallaLaberinto2 extends Phaser.Scene
         
     }
 
+    llamadaPersonaje()
+    {
+        Phaser.Scene.call(this, { key: 'clase-personaje', active: true });
+    }
+
 
 }
