@@ -1,11 +1,11 @@
 import Phaser, { Tilemaps } from 'phaser'
 
 
-export default class PantallaLaberintos extends Phaser.Scene
+export default class PantallaLaberinto1 extends Phaser.Scene
 {
 	constructor()
 	{
-		super('pantalla-laberintos')
+		super('pantalla-laberinto1')
 	}
 
 	preload()

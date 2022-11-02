@@ -4,11 +4,14 @@ import PantallaMenu from './scenes/PantallaMenu'
 import PantallaAjustes from './scenes/PantallaAjustes'
 import PantallaParque from './scenes/PantallaParque'
 import PantallaGanarPerder from './scenes/PantallaGanarPerder'
+import PantallaLaberinto1 from './scenes/PantallaLaberinto1'
+import PantallaLaberinto2 from './scenes/PantallaLaberinto2'
+import PantallaLaberinto3 from './scenes/PantallaLaberinto3'
 import ClasePersonaje from './clases/Personaje'
 import ClaseDificultad from './clases/Dificultad'
-import PantallaLaberintos from './scenes/PantallaLaberintos'
 import ClasePop from './clases/PopUp'
 import ClaseInter from './clases/UI-gameplay'
+
 
 const config = {
 	type: Phaser.AUTO,
@@ -33,8 +36,8 @@ const config = {
 			debug: false,
 		}
 	},
-	scene: [PantallaMenu, PantallaAjustes, PantallaParque, PantallaLaberintos,
-		 PantallaGanarPerder, ClasePersonaje, ClaseDificultad, ClasePop, ClaseInter]
+	scene: [PantallaMenu, PantallaAjustes, PantallaParque, PantallaLaberinto1, 
+		PantallaLaberinto2, PantallaLaberinto3, PantallaGanarPerder, ClasePersonaje, ClaseDificultad, ClasePop, ClaseInter]
 }
 
 export default new Phaser.Game(config)

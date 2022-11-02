@@ -23,15 +23,15 @@ export default class PantallaParque extends Phaser.Scene
 
         var botonlaberinto1 = this.add.image(100, 300, "blabe1" ).setOrigin(0, 0).setScale(0.1, 0.15)
         botonlaberinto1.setInteractive()
-        botonlaberinto1.on("pointerdown", () => this.scene.start('pantalla-laberintos') );
+        botonlaberinto1.on("pointerdown", () => this.scene.start('pantalla-laberinto1') );
 
         var botonlaberinto2 = this.add.image(400, 300, "blabe2" ).setOrigin(0, 0).setScale(0.1, 0.15)
         botonlaberinto2.setInteractive()
-        botonlaberinto2.on("pointerdown", () => this.scene.start('pantalla-laberintos') );
+        botonlaberinto2.on("pointerdown", () => this.scene.start('pantalla-laberinto2') );
 
         var botonlaberinto3 = this.add.image(700, 300, "blabe3" ).setOrigin(0, 0).setScale(0.1, 0.15)
         botonlaberinto3.setInteractive()
-        botonlaberinto3.on("pointerdown", () => this.scene.start('pantalla-laberintos') );
+        botonlaberinto3.on("pointerdown", () => this.scene.start('pantalla-laberinto3') );
     }
 
     update()
