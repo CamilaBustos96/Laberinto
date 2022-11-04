@@ -20,6 +20,8 @@ import Phaser from 'phaser'
 
 export default class PantallaMenu extends Phaser.Scene
 {
+
+    
 	constructor()
 	{
 		super('pantalla-menu')
@@ -46,6 +48,7 @@ export default class PantallaMenu extends Phaser.Scene
         botonajuste1.setInteractive()
         botonajuste1.on("pointerdown", () => this.scene.start('pantalla-ajustes') );
         
+      
 
     }
 

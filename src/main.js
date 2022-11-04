@@ -37,7 +37,7 @@ const config = {
 		}
 	},
 	scene: [PantallaMenu, PantallaAjustes, PantallaParque, PantallaLaberinto1, 
-		PantallaLaberinto2, PantallaLaberinto3, PantallaGanarPerder, ClasePersonaje, ClaseDificultad, ClasePop, ClaseInter]
+		PantallaLaberinto2, PantallaLaberinto3, PantallaGanarPerder, ClaseDificultad, ClasePop, ClaseInter]
 }
 
 export default new Phaser.Game(config)

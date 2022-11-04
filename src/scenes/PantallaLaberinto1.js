@@ -36,23 +36,17 @@ export default class PantallaLaberinto1 extends Phaser.Scene
         const phorizontal = map1.createLayer("ParedesHorizontales", tileset1, 0, 0);
         const pvertical = map1.createLayer("ParedesVerticales", tileset1, 0, 0);
         const arbolt = map1.createLayer("ArbolesTronco", tileset3, 0, 0)
-        //const deco = map1.createLayer("Objetos", tileset1, 0, 0 );
         const luminaria = map1.createLayer("Luces", tileset1, 0, 0);
         const objeto2 = map1.getObjectLayer("Enemigos");
         const objeto1 = map1.getObjectLayer("PersonajeLeah");
         const arbolc = map1.createLayer("ArbolesCopa", tileset3, 0, 0);
 
-        //map1.createLayer('Capa1', [ tileset1, tileset2, tileset3 ]);
 
-        //suelofondo.setCollisionByProperty({ collides: false});
-        //suelodecorado.setCollisionByProperty({ collides: false});
-        //phorizontal.setCollisionByProperty({ collides: true });
-        //pvertical.setCollisionByProperty({ collides: true });
-        //arbolt.setCollisionByProperty({ collides: true });
-        //luminaria.setCollisionByProperty({ collides: true });
-        //arbolc.setCollisionByProperty({ collides: false});
+        phorizontal.setCollisionByProperty({ collides: true });
+        pvertical.setCollisionByProperty({ collides: true });
+        arbolt.setCollisionByProperty({ collides: true });
+        luminaria.setCollisionByProperty({ collides: true });
 
-        //map1.createLayer('Capa1', [ tileset1, tileset2, tileset3 ]);
 
     
 

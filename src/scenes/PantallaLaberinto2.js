@@ -1,14 +1,16 @@
 import Phaser, { Tilemaps } from 'phaser'
 import ClasePersonaje from '../clases/Personaje'
 
-
 export default class PantallaLaberinto2 extends Phaser.Scene
 {
     #player;
+    #cursors;
 
 	constructor()
 	{
 		super('pantalla-laberinto2')
+        
+
 
 	}
 
@@ -20,12 +22,16 @@ export default class PantallaLaberinto2 extends Phaser.Scene
         this.load.image("suelo", "assets/Mapas/Tiles/Stardew-Suelos.png")
         //MAPA
         this.load.tilemapTiledJSON("label2", "assets/Mapas/LaberintoOscuro.json")
-
+        //PERSONAJE
+        this.load.spritesheet("Leah", "assets/Mapas/Objetos/Sprite-0001.png", { frameWidth: 16, frameHeight: 32, endFrame: 15 });
+        
 
     }
 
     create()
     {
+        //TECLADO
+        //this.cursors = this.input.keyboard.createCursorKeys();
 
         //Mapa
         const map2 = this.make.tilemap({ key : "label2", width: 200, height: 200, tileWidth: 16, tileHeight: 16 });
@@ -41,21 +47,28 @@ export default class PantallaLaberinto2 extends Phaser.Scene
         const paredH1 = map2.createLayer("ParedHorizontal1", tileset2, 0, 0);
         const paredH2 = map2.createLayer("ParedHorizontal2", tileset2, 0, 0);
         const paredH3 = map2.createLayer("ParedHorizontal3", tileset2, 0, 0);
-        const paredV1 = map2.createLayer("ParedVertical", tileset2, 0, 0);      
-
-        this.scene.launch('clase-personaje', this.#player);
-
-    }
-
-    update()
-    {
+        const paredV1 = map2.createLayer("ParedVertical", tileset2, 0, 0);
         
-    }
+        //INTERACCION
+        paredH2.setCollisionByProperty({ Collider: true });
+        paredV1.setCollisionByProperty({ Collider: true });
+        
+        //CREACION DE PERSONAJE
+        this.#player = new ClasePersonaje(this);
+        //this.#player = new Anims(this)
 
-    llamadaPersonaje()
-    {
-        Phaser.Scene.call(this, { key: 'clase-personaje', active: true });
-    }
+        //COLLIDE
+        this.physics.add.collider(this.#player, paredH2);
+        this.physics.add.collider(this.#player, paredV1);
 
+        //CAMARA
+        this.cameras.main.startFollow(this.#player);
+        this.cameras.main.setBounds(0, 0, 1024, 2048);
+        this.cameras.main.setZoom(3);
+        //BORRADOS
+        //this.scene.launch('clase-personaje', this.#player);
+
+    }
+    
 
 }

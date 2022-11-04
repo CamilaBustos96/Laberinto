@@ -1,34 +1,25 @@
-import Phaser from 'phaser'
+import Phaser, { GameObjects } from 'phaser'
+import StateMachine from './statemachine';
 import { sharedInstance as events } from "../scenes/EventCenter";
 
 
-export default class ClasePersonaje extends Phaser.Scene
+export default class ClasePersonaje extends Phaser.GameObjects.Sprite
 {
 
     #player;
-
-	constructor()
+    #cursors;
+    #statemachine;
+	constructor(scene, x, y)
 	{
-		super('clase-personaje')
-	}
+        super(scene, x ,y , "Leah")
+        scene.add.existing(this);
+        //this.#player.setCollideWorldBounds(true);
+        //this.#player.setScale(2);
 
-	preload()
-    {
-        this.load.spritesheet("Leah", "assets/Mapas/Objetos/Leah-sprite.png", { frameWidth: 16, frameHeight: 32 });
     }
 
-    create()
+    createAnimacion()
     {
-        //PERSONAJE
-
-        this.player = this.physics.add.sprite(100, 590, "Leah");
-        this.player.setCollideWorldBounds(true);
-        this.player.setScale(2);
-
-        //CAMARA
-        this.cameras.main.startFollow(this.player);
-        this.cameras.main.setBounds(0, 0, 1024, 2048);
-        this.cameras.main.setZoom(2);
         
         //ANIMACION
         
@@ -74,49 +65,52 @@ export default class ClasePersonaje extends Phaser.Scene
         this.anims.create(idle);
 
         const keys = [ "walk-up", "walk-down", "walk-left", "walk-right", "idle" ];
-        this.player.anims.startAnimation("idle");
-
-        this.cursors = this.input.keyboard.createCursorKeys();
-        //this.physics.add.collider(this.#player, Map);
         
+        this.#player.play("idle");
 
-    }
-
-    update()
-    {
-        
-    }
-
-    mobilidad(player)
-    {
-        this.player.setVelocity(0);
-
-        if (this.cursors.left.isDown)
-        {
-            this.player.setAngle(0).setVelocityX(-200);
-            this.player.anims.startAnimation("walk-left");
-        }
-        else if (this.cursors.right.isDown)
-        {
-            this.player.setAngle(0).setVelocityX(200);
-            this.player.anims.startAnimation("walk-right");
-
-        }
-
-        if (this.cursors.up.isDown)
-        {
-            this.player.setAngle(0).setVelocityY(-200);
-            this.player.anims.startAnimation("walk-up");
-
-        }
-        else if (this.cursors.down.isDown)
-        {
-            this.player.setAngle(0).setVelocityY(200);
-            this.player.anims.startAnimation("walk-down");
-
-        }      
-
-    }
     
+        //this.physics.add.collider(this.#player, Map);
+    }
+    createCursors()
+    {
+        //this.#cursors = this.input.keyboard.createCursorKeys();
+        //this.#keyA = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
+        //this.#keyS = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S);
+        //this.#keyD = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
+        //this.#keyW = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W);
+        
+        const { KeyCodes } = Phaser.Input.Keyboard; 
+        this.KEYS = this.input.keyboard.addKeys({
+            IZQUIERDA: KeyCodes.A,
+            DERECHA: KeyCodes.D,
+            ARRIBA: KeyCodes.W,
+            ABAJO: KeyCodes.S,
+        });
+
+    }
+
+    Movimiento()
+    {
+        ////HORIZONTAL
+        const { KEYS } = this;
+        if (KEYS.IZQUIERDA.isDown){
+            this.#player.setAngle(0).setVelocityX(-200);
+            this.#player.startAnimation("walk-left", true);
+        }
+        else if (KEYS.DERECHA.isDown){
+            this.#player.setAngle(0).setVelocityX(-200);
+            this.#player.startAnimation("walk-right", true);
+        }
+        //VERTICAL
+        if (KEYS.ARRIBA.isDown){
+            this.#player.setAngle(0).setVelocityY(-200);
+            this.#player.startAnimation("walk-up", true);
+        }
+        else if (KEYS.ABAJO.isDown){
+            this.#player.setAngle(0).setVelocityY(-200);
+            this.#player.startAnimation("walk-down", true);
+        }
+        
+    }
 
 }
