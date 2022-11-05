@@ -23,7 +23,7 @@ export default class PantallaLaberinto2 extends Phaser.Scene
         //MAPA
         this.load.tilemapTiledJSON("label2", "assets/Mapas/LaberintoOscuro.json")
         //PERSONAJE
-        this.load.spritesheet("Leah", "assets/Mapas/Objetos/Sprite-0001.png", { frameWidth: 16, frameHeight: 32, endFrame: 15 });
+        //this.load.spritesheet("Leah", "assets/Mapas/Objetos/Sprite-0001.png", { frameWidth: 16, frameHeight: 32, endFrame: 15 });
         
 
     }
