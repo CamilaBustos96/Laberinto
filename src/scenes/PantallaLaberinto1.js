@@ -1,15 +1,15 @@
 import Phaser, { Tilemaps } from 'phaser'
+import Personaje from '../clases/Personaje';
 
 
-export default class PantallaLaberinto1 extends Phaser.Scene
-{
-	constructor()
-	{
-		super('pantalla-laberinto1')
-	}
+export default class PantallaLaberinto1 extends Phaser.Scene {
+    player;
 
-	preload()
-    {
+    constructor() {
+        super('pantalla-laberinto1')
+    }
+
+    preload() {
         //MAPA
         this.load.image("festival", "assets/Mapas/Tiles/FestivalesStardew.png")
         this.load.image("cuevas", "assets/Mapas/Tiles/CuevasStardew.png")
@@ -17,15 +17,15 @@ export default class PantallaLaberinto1 extends Phaser.Scene
         this.load.tilemapTiledJSON("label1", "assets/Mapas/LaberintoTerror.json")
 
         //PERSONAJE
-        this.load.spritesheet("Lea", "assets/Objetos/spriteLeah.png", {frameWidth: 32, frameHeight: 48 });
-        this.load.spritesheet("Jugador", "assets/Objetos/dude.png", { frameWidth: 32, frameHeight: 48});
+        this.load.spritesheet("Lea", "assets/Objetos/spriteLeah.png", { frameWidth: 16, frameHeight: 30.5 });
+        this.load.spritesheet("Jugador", "assets/Objetos/dude.png", { frameWidth: 32, frameHeight: 48 });
 
     }
 
-    create()
-    {
+    create() {
+        this.cursors = this.input.keyboard.createCursorKeys();
         //MAPA LABERINTO 1
-        const map1 = this.make.tilemap({ key : "label1", width: 200, height: 200, tileWidth: 16, tileHeight: 16 });
+        const map1 = this.make.tilemap({ key: "label1", width: 200, height: 200, tileWidth: 16, tileHeight: 16 });
 
         const tileset1 = map1.addTilesetImage("FestivalesStardew", "festival");
         const tileset2 = map1.addTilesetImage("CuevasStardew", "cuevas");
@@ -48,12 +48,33 @@ export default class PantallaLaberinto1 extends Phaser.Scene
         luminaria.setCollisionByProperty({ collides: true });
 
 
-    
+        this.player = new Personaje(this, objeto1.objects[0].x, objeto1.objects[0].y);
+        console.log("🚀 ~ file: PantallaLaberinto1.js ~ line 55 ~ objeto1", objeto1);
 
+        this.cameras.main.startFollow(this.player);
     }
 
-    update()
-    {
-       
+    update() {
+        if (this.cursors.left.isDown) {
+            this.player.moverIzquierda();
+        } else {
+            if (this.cursors.right.isDown) {
+                // derecha
+            } else {
+                if (this.cursors.up.isDown) {
+                    this.player.moverArriba();
+                }else {
+                    if (this.cursors.down.isDown) {
+                        // abajo
+                    } else {
+                        if(!this.player.anims.isPlaying){
+                            this.player.setVelocityX(0);
+                            this.player.setVelocityY(0);
+                        }
+                    }
+                }
+            }
+        }
+        
     }
 }

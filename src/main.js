@@ -7,7 +7,6 @@ import PantallaGanarPerder from './scenes/PantallaGanarPerder'
 import PantallaLaberinto1 from './scenes/PantallaLaberinto1'
 import PantallaLaberinto2 from './scenes/PantallaLaberinto2'
 import PantallaLaberinto3 from './scenes/PantallaLaberinto3'
-import ClasePersonaje from './clases/Personaje'
 import ClaseDificultad from './clases/Dificultad'
 import ClasePop from './clases/PopUp'
 import ClaseInter from './clases/UI-gameplay'
@@ -33,7 +32,7 @@ const config = {
 		default: 'arcade',
 		arcade: {
 			gravity: { y: 0 },
-			debug: false,
+			debug: true,
 		}
 	},
 	scene: [PantallaMenu, PantallaAjustes, PantallaParque, PantallaLaberinto1, 
