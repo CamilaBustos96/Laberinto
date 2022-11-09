@@ -7,9 +7,7 @@ import PantallaGanarPerder from './scenes/PantallaGanarPerder'
 import PantallaLaberinto1 from './scenes/PantallaLaberinto1'
 import PantallaLaberinto2 from './scenes/PantallaLaberinto2'
 import PantallaLaberinto3 from './scenes/PantallaLaberinto3'
-import ClaseDificultad from './clases/Dificultad'
-import ClasePop from './clases/PopUp'
-import ClaseInter from './clases/UI-gameplay'
+import ClasePerdiste from './scenes/Perdiste'
 
 
 const config = {
@@ -32,11 +30,15 @@ const config = {
 		default: 'arcade',
 		arcade: {
 			gravity: { y: 0 },
-			debug: true,
+			debug: false,
 		}
 	},
+	audio: {
+        disableWebAudio: true
+    },
 	scene: [PantallaMenu, PantallaAjustes, PantallaParque, PantallaLaberinto1, 
-		PantallaLaberinto2, PantallaLaberinto3, PantallaGanarPerder, ClaseDificultad, ClasePop, ClaseInter]
+		PantallaLaberinto2, PantallaLaberinto3, ClasePerdiste ,PantallaGanarPerder]
 }
 
 export default new Phaser.Game(config)
+window.focus();

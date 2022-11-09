@@ -3,7 +3,6 @@ import Phaser from 'phaser'
 
 
 
-
 // Manejador de eventos centralizados para comunicacion de componentes
 
 // Importacion
@@ -20,7 +19,8 @@ import Phaser from 'phaser'
 
 export default class PantallaMenu extends Phaser.Scene
 {
-
+    #botonplay;
+    #botonajuste1;
     
 	constructor()
 	{
@@ -39,14 +39,14 @@ export default class PantallaMenu extends Phaser.Scene
     create()
     {
         this.add.image(0, 0, 'pantamenu').setOrigin(0, 0).setScale(0.21, 0.28)
-        //this.add.image(355, 300, "play" ).setOrigin(0, 0).setScale(0.2, 0.25)
-        //this.add.image(365, 430, "ajustes" ).setOrigin(0, 0).setScale(0.2, 0.25)
-        var botonplay = this.add.image(355, 300, 'play').setOrigin(0, 0).setScale(0.2, 0.25)
-        botonplay.setInteractive()
-        botonplay.on('pointerdown', () => this.scene.start('pantalla-parque') );
-        var botonajuste1 = this.add.image(365, 430, "ajustes" ).setOrigin(0, 0).setScale(0.2, 0.25)
-        botonajuste1.setInteractive()
-        botonajuste1.on("pointerdown", () => this.scene.start('pantalla-ajustes') );
+        this.add.image(355, 300, "play" ).setOrigin(0, 0).setScale(0.2, 0.25)
+        this.add.image(365, 430, "ajustes" ).setOrigin(0, 0).setScale(0.2, 0.25)
+        this.#botonplay = this.add.image(355, 300, 'play').setOrigin(0, 0).setScale(0.2, 0.25)
+        this.#botonplay.setInteractive()
+        this.#botonplay.on('pointerdown', () => this.scene.start('pantalla-parque') );
+        this.#botonajuste1 = this.add.image(365, 430, "ajustes" ).setOrigin(0, 0).setScale(0.2, 0.25)
+        this.#botonajuste1.setInteractive()
+        this.#botonajuste1.on("pointerdown", () => this.scene.start('pantalla-ajustes') );
         
       
 
