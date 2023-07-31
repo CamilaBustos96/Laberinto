@@ -1,0 +1,41 @@
+{
+	"textures": [
+		{
+			"image": "Gatito.png",
+			"format": "RGBA8888",
+			"size": {
+				"w": 49,
+				"h": 34
+			},
+			"scale": 1,
+			"frames": [
+				{
+					"filename": "7 idle.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 48,
+						"h": 32
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 47,
+						"h": 32
+					},
+					"frame": {
+						"x": 1,
+						"y": 1,
+						"w": 47,
+						"h": 32
+					}
+				}
+			]
+		}
+	],
+	"meta": {
+		"app": "https://www.codeandweb.com/texturepacker",
+		"version": "3.0",
+		"smartupdate": "$TexturePacker:SmartUpdate:2e3d96970277266e548ef49e7c8770e8:d74302f45409d5652dc20e131e5e67d8:7507763669087975cd2f96edb117d967$"
+	}
+}
